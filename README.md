@@ -117,11 +117,12 @@ Deploy the VM.
 ## 6️⃣ Configure DNS on DC1
 
 1. Set **DC1 IP address** to **Static** (Find Subnetmask and Gateway in cmd with ipconfig)
-2. Copy DC1’s private IP address
-3. Navigate to the **OnSite Virtual Network**
-4. Set **Custom DNS servers**
-5. Paste DC1’s IP address
-6. Restart **DC1 and DC2**
+2. Can leave DNS as loopback address (127.0.0.1) and leave Secondary blank
+3. Copy DC1’s private IP address
+4. Navigate to the **OnSite Virtual Network**
+5. Set **Custom DNS servers**
+6. Paste DC1’s IP address
+7. Restart **DC1 and DC2**
 
 ---
 
@@ -144,10 +145,11 @@ Deploy the VM.
 
 ## 8️⃣ Configure DNS on DC2
 
-1. Set DC2 IP address to **Static** (Find subnetmask ans gateway in cmd using ipconfig)
-2. Copy DC2’s IP address
-3. In the **OnSite Virtual Network**, add DC2 as a **secondary DNS server**
-4. Restart **DC1 and DC2**
+1. Set DC2 IP address to **Static** (Find subnetmask and gateway in cmd using ipconfig)
+2. set DNS to IP of DC1
+3. Copy DC2’s IP address
+4. In the **OnSite Virtual Network**, add DC2 as a **secondary DNS server**
+5. Restart **DC1 and DC2**
 
 ---
 
