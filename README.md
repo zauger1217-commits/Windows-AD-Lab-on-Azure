@@ -90,7 +90,7 @@ Deploy the VM.
 
 1. Connect to `DC1` via **RDP**
 2. Format the **F:** drive (AD storage disk)
-3. look in disk management- clear open 450mg space then create new simple partition with F:
+3. look in disk management- using extra 10GB volume
 4. Open **Server Manager**
 5. Install **Active Directory Domain Services**
 6. Promote server to a domain controller (last step in installing Domain Services)
