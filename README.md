@@ -69,7 +69,7 @@ Once complete, you will have a functional domain with **dual domain controllers*
 3. **VM Name:** `DC1`
 4. **Availability Option:** Availability set  
    - Create availability set named `ADLAB`
-5. **Image:** Windows Server 2019
+5. **Image:** Windows Server 2019 (Or 2022)
 6. **Size:** 2 vCPUs / 8 GB RAM
 7. Create local admin username and password
 
@@ -90,15 +90,16 @@ Deploy the VM.
 
 1. Connect to `DC1` via **RDP**
 2. Format the **F:** drive (AD storage disk)
-3. Open **Server Manager**
-4. Install **Active Directory Domain Services**
-5. Promote server to a domain controller
-6. Create a new forest:
+3. look in disk management- clear open 450mg space then create new simple partition with F:
+4. Open **Server Manager**
+5. Install **Active Directory Domain Services**
+6. Promote server to a domain controller (last step in installing Domain Services)
+7. Create a new forest:
    ```
    myazurelab.com
    ```
-7. Store AD data on the **F:** drive
-8. Restart the VM
+8. Store AD data on the **F:** drive (first option only)
+9. Restart the VM
 
 ---
 
@@ -107,6 +108,7 @@ Deploy the VM.
 - Repeat Step 3
 - **VM Name:** `DC2`
 - Same **Resource Group**, **Availability Set**, and **Network**
+- Make sure to disable Boot Diagnostics in Monitoring tab
 - Attach a **10 GB disk**
 - Deploy the VM
 
@@ -114,7 +116,7 @@ Deploy the VM.
 
 ## 6️⃣ Configure DNS on DC1
 
-1. Set **DC1 IP address** to **Static**
+1. Set **DC1 IP address** to **Static** (Find Subnetmask and Gateway in cmd with ipconfig)
 2. Copy DC1’s private IP address
 3. Navigate to the **OnSite Virtual Network**
 4. Set **Custom DNS servers**
@@ -129,6 +131,9 @@ Deploy the VM.
 2. Format the **F:** drive
 3. Join the domain:
    - `myazurelab.com`
+   - Local server
+   - Workgroup
+   - Join domain
 4. Authenticate using **DC1 credentials**
 5. Restart DC2
 6. Install **Active Directory Domain Services**
@@ -139,7 +144,7 @@ Deploy the VM.
 
 ## 8️⃣ Configure DNS on DC2
 
-1. Set DC2 IP address to **Static**
+1. Set DC2 IP address to **Static** (Find subnetmask ans gateway in cmd using ipconfig)
 2. Copy DC2’s IP address
 3. In the **OnSite Virtual Network**, add DC2 as a **secondary DNS server**
 4. Restart **DC1 and DC2**
